@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Задание 3 - КТ-6</title>
+    <link rel="stylesheet" href="/css/site.css">
+    <script src="/js/user-requests.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <p class="site-title">КТ-6 - Обновление данных при помощи запросов</p>
+            <nav>
+                <a href="/">Главная</a>
+                <a href="/update.html">Задание 1</a>
+                <a href="/conditional.html">Задание 2</a>
+                <a href="/transaction.html">Задание 3</a>
+                <a href="/errors.html">Задание 4</a>
+                <a href="/logs.html">Задание 5</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container content">
+        <h1>Задание 3</h1>
+        <p>Имя и возраст изменяются первым запросом, почта вторым, оба запроса выполняются в одной транзакции</p>
+        <form id="request-form" data-mode="transaction">
+            <div class="form-grid">
+                <div>
+                    <label for="user-id">ID пользователя</label>
+                    <input id="user-id" type="number" min="1" max="2147483647" step="1" value="1" required>
+                </div>
+                <div>
+                    <label for="age">Новый возраст</label>
+                    <input id="age" type="number" min="0" max="120" step="1" required>
+                </div>
+                <div>
+                    <label for="name">Новое имя</label>
+                    <input id="name" maxlength="100" required>
+                </div>
+                <div>
+                    <label for="email">Новая электронная почта</label>
+                    <input id="email" type="email" maxlength="100" required>
+                </div>
+            </div>
+            <p class="hint">Для проверки отката укажите почту другого пользователя из таблицы, при ошибке имя и возраст тоже останутся прежними</p>
+            <button type="submit" id="send-button" disabled>Отправить запрос</button>
+        </form>
+        <p id="error" class="error" role="alert"></p>
+        <h2>Ответ сервера</h2>
+        <dl class="response-info">
+            <dt>Метод и URL</dt><dd id="response-url">Запрос ещё не отправлен</dd>
+            <dt>Статус</dt><dd id="response-status">Запрос ещё не отправлен</dd>
+        </dl>
+        <pre id="response-body" class="preview">Здесь появится ответ API</pre>
+        <h2>Пользователи в базе</h2>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>ID</th><th>Имя</th><th>Почта</th><th>Возраст</th></tr></thead>
+                <tbody id="users-body"></tbody>
+            </table>
+        </div>
+        <p id="users-error" class="error" role="alert"></p>
+        <button type="button" id="refresh-users">Обновить список</button>
+    </main>
+    <footer class="container">ADO.NET - ASP.NET Core API - КТ-6</footer>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Задание 5 - КТ-6</title>
+    <link rel="stylesheet" href="/css/site.css">
+    <script src="/js/logs.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <p class="site-title">КТ-6 - Обновление данных при помощи запросов</p>
+            <nav>
+                <a href="/">Главная</a>
+                <a href="/update.html">Задание 1</a>
+                <a href="/conditional.html">Задание 2</a>
+                <a href="/transaction.html">Задание 3</a>
+                <a href="/errors.html">Задание 4</a>
+                <a href="/logs.html">Задание 5</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container content">
+        <h1>Задание 5</h1>
+        <p>Журнал запросов на обновление данных, для каждого запроса показаны время и результат</p>
+        <p class="hint">Отображаются последние 100 записей, новые находятся сверху, время указано по Москве</p>
+        <button type="button" id="refresh-logs">Обновить журнал</button>
+        <p id="error" class="error" role="alert"></p>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Время</th><th>Метод</th><th>URL</th><th>Статус</th><th>Результат</th></tr></thead>
+                <tbody id="logs-body"></tbody>
+            </table>
+        </div>
+    </main>
+    <footer class="container">ADO.NET - ASP.NET Core API - КТ-6</footer>
+</body>
+</html>
